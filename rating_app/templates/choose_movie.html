@@ -1,0 +1,48 @@
+{% extends 'movie-base.html' %}
+{% load static %}
+{% block rating_page %}
+<section class="wrapper">
+    <h1 class="movie-header">Choose right movie!</h1>
+    <a class="go_back" href="{% url 'movies:rating_page' %}">Go back!</a>
+    <form class="choose-form" action="{% url 'movies:choose_page' %}" method="post">
+        {% csrf_token %}
+        <div class="main-table">
+            <div class="tbl-header">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>poster</th>
+                            <th>film</th>
+                            <th>year</th>
+                            <th>link</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+            <div class="tbl-content">
+                <table>
+                    <tbody>
+                    {% for item in films_data %}
+                        <tr>
+                            <td>
+                                <img src="{{item.poster_preview}}" alt="poster">
+                            </td>
+                            <td>
+                                <input style="display: none;" type="text" name="rating" value="{{rating}}">
+                                <input type="radio" name="film" value="{{item.kp_id}}">
+                                <label for="film">{{item.ru_name}}</label>
+                            </td>
+                            <td>{{item.year}}</td>
+                            <td><a class="movie-link" href="{{item.kp_url}}">Click</a></td>
+                        </tr>
+                    {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="update-btn">
+            <button type="submit">Choose movie</button>
+        </div>
+    </form>
+</section>
+{% endblock %}

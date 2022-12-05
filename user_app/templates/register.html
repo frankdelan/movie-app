@@ -1,0 +1,20 @@
+{% extends 'user-base.html' %}
+{% block register_page %}
+<main class="main">
+    <div class="wrapper">
+        <div class="container">
+            <div class="title">
+                <h2>Create account</h2>
+            </div>
+            <form action="{% url 'user_app:register_page' %}" method="POST">
+                {% csrf_token%}
+                {{ register_form }}
+                <button type="submit" class="form-btn">
+                    <div>Sign up</div>
+                </button>
+            </form>
+            <span>already have an account, <a class="account" href="{% url 'user_app:login_page' %}">click here</a></span>
+        </div>
+    </div>
+</main>
+{% endblock %}
