@@ -1,10 +1,10 @@
-{% extends 'movie-base.html' %}
+{% extends 'wishlist_app/base.html' %}
 {% load static %}
-{% block rating_page %}
+{% block select_page %}
 <section class="wrapper">
     <h1 class="movie-header">Choose right movie!</h1>
-    <a class="go_back" href="{% url 'movies:rating_page' %}">Go back!</a>
-    <form class="choose-form" action="{% url 'movies:choose_page' %}" method="post">
+    <a class="go_back" href="{% url 'wishlists:list_page' %}">Go back!</a>
+    <form class="choose-form" action="{% url 'wishlists:choose_page' %}" method="post">
         {% csrf_token %}
         <div class="main-table">
             <div class="tbl-header">

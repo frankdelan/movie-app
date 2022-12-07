@@ -38,9 +38,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'django_rename_app',
     'user_app',
-    'rating_app'
+    'rating_app',
+    'wishlist_app'
 ]
 
 MIDDLEWARE = [
@@ -58,7 +58,9 @@ ROOT_URLCONF = 'movie_service.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': ['templates'],
+        'DIRS': [BASE_DIR / 'user_app/templates/user_app',
+                 BASE_DIR / 'rating_app/templates/rating_app',
+                 BASE_DIR / 'wishlist_app/templates/wishlist_app'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -124,8 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/4.1/howto/static-files/
 
 STATICFILES_DIRS = [
-    BASE_DIR / "user_app/static",
-    BASE_DIR / "rating_app/static"
+    BASE_DIR / "user_app/static/user_app",
+    BASE_DIR / "rating_app/static/rating_app",
+    BASE_DIR / "wishlist_app/static/wishlist_app",
 ]
 
 STATIC_URL = 'static/'

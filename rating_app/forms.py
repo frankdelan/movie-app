@@ -1,7 +1,7 @@
 from django import forms
 
 
-class CreateForm(forms.Form):
+class CreationForm(forms.Form):
     title = forms.CharField(label='', max_length=100, widget=forms.TextInput(attrs={'class': "form-field",
                                                                                     'placeholder': "Title"}))
 
@@ -10,5 +10,4 @@ class CreateForm(forms.Form):
                                                                         'min': '0',
                                                                         'max': '10',
                                                                         'step': '0.5',
-                                                                        'value': '0'
-                                                                        }))
+                                                                        'value': '0'}))

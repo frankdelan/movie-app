@@ -1,7 +1,7 @@
 from django.urls import path
 from .views import show_rating, create_rating, choose_movie
 
-app_name = 'user_app'
+app_name = 'rating_app'
 
 urlpatterns = [
     path('rating', show_rating, name='rating_page'),

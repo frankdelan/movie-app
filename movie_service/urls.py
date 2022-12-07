@@ -18,9 +18,11 @@ from django.urls import path, include
 from user_app import views as user_views
 from rating_app import views as rating_views
 
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', rating_views.start_page, name='index_page'),
     path('users/', include('user_app.urls', namespace='users')),
-    path('movies/', include('rating_app.urls', namespace='movies'))
+    path('movies/', include('rating_app.urls', namespace='movies')),
+    path('wishlist/', include('wishlist_app.urls', namespace='wishlists'))
 ]
